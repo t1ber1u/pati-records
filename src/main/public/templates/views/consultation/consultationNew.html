@@ -1,0 +1,245 @@
+<div>
+    <section class="content-header">
+        <h1 id="page-title">Nova Consulta</h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box box-primary">
+                    <form>
+                        <div class="box-header with-border">
+                            <h3>Informações do paciente</h3>
+                            <div class="row">
+                                <div class="col-lg-4" >
+                                    <label>Nome: </label>
+                                    <span id="patient_name">{{patient.name || 'Não informado'}}</span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>Gênero adminitrativo: </label>
+                                    <span id="patient_genderAdm">{{gendersAdm[patient.genderAdm] || 'Não informado'}}</span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>Data/hora de nascimento: </label>
+                                    <span id="patient_birthDate">{{patient.birthDate ? (patient.birthDate  | date: 'dd/MM/yyyy - HH:mm') : 'Não informado'}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <label>Estado civil: </label>
+                                    <span id="patient_maritalStatus">{{patient.maritalStatus || 'Não informado'}}</span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>Raça: </label>
+                                    <span id="patient_breed">{{patient.breed || 'Não informado'}}</span>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>Etnia: </label>
+                                    <span id="patient_ethnicGroup">{{patient.ethnicGroup || 'Não informado'}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <uib-tabset class="tabs-container">
+                                        <uib-tab id="subjective_tab" heading="Subjetivo">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Anamnese</label>
+                                                        <textarea id="main_complaint" class="form-control"
+                                                                rows="6" style="resize: none"
+                                                                ng-model="consultation.mainComplaint"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Comentários</label>
+                                                        <textarea id="subjective_comments" class="form-control"
+                                                                  rows="6" style="resize: none"
+                                                                  ng-model="consultation.subjectiveComments"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab id="objective_tab" heading="Objetivo">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Altura</label>
+                                                        <input class="form-control" type="text" id="objective_height"
+                                                               ng-model="consultation.height"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Peso</label>
+                                                        <input class="form-control" type="text" id="objective_weight"
+                                                               ng-model="consultation.weight"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Temperatura</label>
+                                                        <input class="form-control" type="text" id="objective_temperature"
+                                                               ng-model="consultation.temperature"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <label>Pressão arterial</label>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-lg-4">
+                                                                <input class="form-control" type="text" id="objective_pressure_1"
+                                                                       ng-model="consultation.diastolicPressure" />
+                                                            </div>
+                                                            <div class="col-lg-4">
+                                                                <input class="form-control" type="text" id="objective_pressure_2"
+                                                                       ng-model="consultation.systolicPressure"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label>Frequência cardíaca</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" id="objective_heart_rate"
+                                                               ng-model="consultation.heartRate"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label>Glicemia capilar</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" id="objective_glycemic_level"
+                                                               ng-model="consultation.glycemicLevel"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <label>Frequência respiratória</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" id="objective_respiratory_rate"
+                                                               ng-model="consultation.respiratoryRate"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label>Saturação de oxigênio</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" id="objective_oxigen_level"
+                                                               ng-model="consultation.oxigenLevel"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label>Saturação de Dióxido de Carbono</label>
+                                                    <div class="form-group">
+                                                        <input class="form-control" type="text" id="objective_carbon_dioxide_level"
+                                                               ng-model="consultation.carbonDioxideLevel"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Comentários</label>
+                                                        <textarea id="objective_comments" class="form-control"
+                                                                  rows="6" style="resize: none"
+                                                                  ng-model="consultation.objectiveComments"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab id="analysis_tab" heading="Avaliação">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <label>Diagnóstico (CID10)</label>
+                                                    <div class="form-group">
+                                                        <select id="analysis_diagnostic" class="form-control"
+                                                                ng-options="type.value as type.description for type in types.analysisDiagnostic"
+                                                                ng-model="consultation.analysisDiagnostic">
+                                                            <option value="">--</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <label>Tipo</label>
+                                                    <div class="form-group">
+                                                        <select id="analysis_type" class="form-control"
+                                                                ng-options="type.value as type.description for type in types.analysisType"
+                                                                ng-model="consultation.analysisType">
+                                                            <option value="">--</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Comentários</label>
+                                                        <textarea id="analysis_comments" class="form-control"
+                                                                  rows="6" style="resize: none"
+                                                                  ng-model="consultation.analysisComments"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab id="plan_tab" heading="Plano">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Conduta</label>
+                                                        <textarea id="plan_conduct" class="form-control"
+                                                                  rows="6" style="resize: none"
+                                                                  ng-model="consultation.conduct"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Comentários</label>
+                                                        <textarea id="plan_comments" class="form-control"
+                                                                  rows="6" style="resize: none"
+                                                                  ng-model="consultation.planComments"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                        <uib-tab id="evolution_tab" heading="Evolução">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label>Evolução</label>
+                                                        <textarea id="evolution" class="form-control"
+                                                                  rows="10" style="resize: none"
+                                                                  ng-model="consultation.evolution"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </uib-tab>
+                                    </uib-tabset>
+                                </div>
+                            </div>
+                            <div class="box-footer">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <button id="saveButton" type="button" ng-click="save()"
+                                                class="btn btn-default">Salvar</button>
+                                        <button id="cancelButton" type="button" ng-click="cancel()"
+                                                class="btn btn-warning">Cancelar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

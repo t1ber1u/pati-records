@@ -1,0 +1,54 @@
+<div>
+    <section class="content-header">
+        <h1>Dashboard</h1>
+    </section>
+    <section class="content">
+        <div class="box box-primary">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Telefone</th>
+                                <th>Gênero</th>
+                                <th>Data de aniversário</th>
+                                <th>Endereço</th>
+                                <th>Ações</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="patient in patients track by $index">
+                                <td>
+                                    {{patient.id}}
+                                </td>
+                                <td>
+                                    {{patient.name}}
+                                </td>
+                                <td>
+                                	{{patient.phone}}
+                                </td>
+                                <td>
+                                	{{patient.genderAdm}}
+                                </td>
+                                <td>
+                                	{{patient.birthDate}}                                	
+                                </td>
+                                <td>
+                                	{{patient.address}}
+                                </td>
+                                <td class="text-center">
+                                    <span class="pointer glyphicon glyphicon-edit"
+                                          title="Consulta" ng-click="openConsultation($index)"></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

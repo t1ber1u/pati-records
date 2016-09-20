@@ -1,0 +1,67 @@
+<div>
+    <section class="content-header">
+        <h1>Novo paciente</h1>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box box-primary">
+                    <form>
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="patientName">Nome</label>
+                                <input id="patientName" type="text" ng-model="patient.name" class="form-control" placeholder="Nome"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientPhone">Telefone</label>
+                                <input id="patientPhone" type="text" ng-model="patient.phone" class="form-control" placeholder="Telefone"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientGender">Gênero Administrativo</label>
+                                <select id="patientGender" class="form-control"
+                                        ng-options="gender.value as gender.description for gender in gendersAdm"
+                                        ng-model="patient.genderAdm">
+                                    <option value="">--</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientBirthDate">Data e hora de nascimento</label>
+                                <input id="patientBirthDate" type="text" ng-model="patient.birthDate" class="form-control" placeholder="Nascimento"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientAddress">Endereço</label>
+                                <input id="patientAddress" type="text" ng-model="patient.address" class="form-control" placeholder="Endereço"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientMaritalStatus">Estado civil</label>
+                                <select id="patientMaritalStatus" class="form-control"
+                                        ng-options="status.value as status.description for status in maritalStatuses"
+                                        ng-model="patient.maritalStatus">
+                                    <option value="">--</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientBreed">Raça</label>
+                                <select id="patientBreed" class="form-control"
+                                        ng-options="breed.value as breed.description for breed in breeds"
+                                        ng-model="patient.breed">
+                                    <option value="">--</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="patientEthnicGroup">Etnia</label>
+                                <select id="patientEthnicGroup" class="form-control"
+                                        ng-options="group.value as group.description for group in ethnicGroups"
+                                        ng-model="patient.ethnicGroup">
+                                    <option value="">--</option>
+                                </select>
+                            </div>
+                            <button id="saveButton" type="button" ng-click="save()" class="btn btn-default">Salvar</button>
+                            <button id="cancelButton" type="button" ng-click="cancel()" class="btn btn-warning">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

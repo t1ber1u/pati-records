@@ -1,0 +1,26 @@
+CREATE TABLE `consultation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mainComplaint` varchar(200),
+  `subjectiveComments` varchar(200),
+  `height` varchar(200),
+  `weight` varchar(200),
+  `temperature` varchar(200),
+  `diastolicPressure` varchar(200),
+  `systolicPressure` varchar(200),
+  `heartRate` varchar(200),
+  `glycemicLevel` varchar(200),
+  `respiratoryRate` varchar(200),
+  `oxigenLevel` varchar(200),
+  `carbonDioxideLevel` varchar(200),
+  `objectiveComments` varchar(200),
+  `analysisDiagnostic` varchar(200),
+  `analysisType` varchar(200),
+  `analysisComments` varchar(200),
+  `conduct` varchar(200),
+  `planComments` varchar(200),
+  `evolution` varchar(200),
+  `patientId` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`patientId`) REFERENCES patient(`id`)
+) DEFAULT CHARSET=utf8;
+
